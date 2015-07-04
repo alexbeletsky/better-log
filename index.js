@@ -29,7 +29,11 @@ function betterError() {
 
 betterLog.error = betterError;
 
-betterLog.setConfig = setConfig;
+betterLog.config = function (config) {
+	setConfig(config);
+
+	return betterLog;
+};
 
 betterLog.install = function (newConfig) {
 	setConfig(newConfig);

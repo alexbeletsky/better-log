@@ -42,4 +42,11 @@ log({ x: 1, y: 'prop' });
 log.error('Something bad happened :(');
 ```
 
+With configuration,
+
+```js
+var log = require('better-log').config({depth: 4});
+log({ x: 1, y: {z: {a: 1, b: 2, c: 3}}});
+```
+
 That's it!
