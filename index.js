@@ -33,6 +33,7 @@ betterLog.setConfig = setConfig;
 
 betterLog.install = function (newConfig) {
 	setConfig(newConfig);
+
 	console.error = console.warn = betterError;
 	console.log = console.info = betterLog;
 
