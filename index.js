@@ -4,7 +4,6 @@ var log = console.log;
 var error = console.error;
 var inspect = require('util').inspect;
 var extend = require('util')._extend;
-var map = Array.prototype.map;
 var config = { depth: 1, colors: true };
 
 function setConfig(newConfig) {
@@ -35,11 +34,15 @@ betterLog.setConfig = setConfig;
 betterLog.install = function (newConfig) {
 	setConfig(newConfig);
 	console.error = console.warn = betterError;
-	return console.log = console.info = betterLog;
+	console.log = console.info = betterLog;
+
+	return betterLog;
 };
 
 betterLog.uninstall = function () {
-	return console.log = log;
+	console.log = log;
+
+	return log;
 };
 
 module.exports = betterLog;
